@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import {LoginModel} from '../../core/models/user.model';
+
 
 @Component({
   selector: 'app-login',
@@ -10,14 +12,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  loginObj:LoginModel= new LoginModel()
+  loginObj:LoginModel= new LoginModel();
    
 
   router = inject(Router);
 
   onLogin(){
     debugger
-    if(this.loginObj.email == "admin@gmail.com" && this.loginObj.password=="1234"){
+    if(this.loginObj.email == "admin@gmail.com" && this.loginObj.mobile=="1234"){
       this.router.navigateByUrl("/dashboard");
     }else{
       alert('Wrong Credential')
@@ -25,12 +27,12 @@ export class LoginComponent {
   }
   
 }
-class LoginModel {
-  email:string;
-  password:string;
+// class LoginModel {
+//   email:string;
+//   password:string;
 
-  constructor() {
-    this.email='';
-    this.password='';
-  }
-}
+//   constructor() {
+//     this.email='';
+//     this.password='';
+//   }
+// }
